@@ -17,7 +17,8 @@
     <title>GGWP - Good Game Well Played! Best Game Clip</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/brands.min.css" />
     <!-- Custom styles for this template -->
@@ -25,43 +26,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            
             //$.get("http://localhost:9081/v1/get/clip", function (data, status) {
             $.get("https://ggwp-kr.fastapi.shop/v1/get/clip", function (data, status) {
                 // console.log(data);
                 // console.log(status);
-
-                if("success" == status)
-                {
-                    $.each( data, function( i, item ) 
-                    {
-                        var tempTag = 
-                            '<div class="col-lg-3 col-md-4 col-6">'+ item.title 
-                            +'<a href="'+item.url+'" class="d-block mb-4 h-100">'
-                            +'<img class="img-fluid img-thumbnail" src="'+item.thumbnail_url+'" alt=""></a></div>';
-                            console.log(tempTag);
+                if ("success" == status) {
+                    $.each(data, function (i, item) {
+                        var tempTag =
+                            '<div class="col-lg-3 col-md-4 col-6">' + item.title
+                            + '<a href="' + item.url + '" class="d-block mb-4 h-100">'
+                            + '<img class="img-fluid img-thumbnail" src="' + item.thumbnail_url + '" alt=""></a></div>';
+                        console.log(tempTag);
                         $("#clipList").append(tempTag);
                     });
                 }
             });
         });
     </script>
-
-
     <style>
         .main-logo {
             text-align: center;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="main-logo">
-            <a href="https://www.ggwp.kr"><img style="width: 200px;height: 200px;" src="https://www.ggwp.kr/img/logo.png" /></a>
+            <a href="https://www.ggwp.kr"><img style="width: 200px;height: 200px;"
+                    src="https://www.ggwp.kr/img/logo.png" /></a>
         </div>
         <hr class="mt-2 mb-5">
-
         <div id="clipList" class="row text-center text-lg-left">
             <!-- <div class="col-lg-3 col-md-4 col-6">
                 <a href="#" class="d-block mb-4 h-100">
@@ -69,7 +63,28 @@
                 </a>
             </div> -->
         </div>
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({
+                        google_ad_client: "ca-pub-4095321228715942",
+                        enable_page_level_ads: true
+                    });
+                </script>
+            </div>
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; www.ggwp.kr@gmail.com</p>
+                <p class="m-0 text-center text-white">
+                    <a class="btn btn-github btn-outline-dark" href="https://github.com/www.ggwp.kr"><i
+                            class="fab fa-github fa-2x" aria-hidden="true"></i></a>
+                    <a class="btn btn-outline-dark" href="https://open.kakao.com/o/swJsgpsb"><i
+                            class="fas fa-comment fa-2x"></i></a>
+                </p>
+            </div>
+            <!-- /.container -->
+        </footer>
     </div>
 </body>
-
 </html>
