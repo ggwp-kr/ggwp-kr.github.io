@@ -55,10 +55,10 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
 
     function getClips(gameid)
     {
-        var apiurl = 'https://ggwp-kr.fastapi.shop/v1/get/clip';
+        var apiurl = 'https://ggwp-kr.fastapi.shop/api/v1/get/clip';
         if(gameid != 'all')
         {
-            apiurl = 'https://ggwp-kr.fastapi.shop/v1/clip/game/'+gameid;
+            apiurl = 'https://ggwp-kr.fastapi.shop/api/v1/clip/game/'+gameid;
         }
         $("#clipList").empty();
         $.get(apiurl, function (data, status) {
