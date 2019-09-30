@@ -58,6 +58,7 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
     <!-- Custom styles for this template -->
     <!-- <link href="css/thumbnail-gallery.css" rel="stylesheet"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.2/dist/lazyload.min.js"></script>
     <script type="text/javascript">
 
     function getClips(gameid)
@@ -76,7 +77,10 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
                         var tempTag =
                             '<div class="col-lg-3 col-md-4 col-6">' + item.title
                             + '<a href="' + item.url + '" class="d-block mb-4 h-100">'
-                            + '<img class="img-fluid img-thumbnail" src="' + item.thumbnail_url + '" alt=""></a></div>';
+                            + '<img 
+                                class="img-fluid img-thumbnail" 
+                                src="https://via.placeholder.com/240x140?text=GGWP.KR"
+                                data-src="' + item.thumbnail_url + '" alt=""></a></div>';
                         //console.log(tempTag);
                         $("#clipList").append(tempTag);
                     });
@@ -142,5 +146,13 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
             <!-- /.container -->
         </footer>
     </div>
+    <script type="text/javascript">
+		var lazyLoadInstance = new LazyLoad({
+			elements_selector: ".lazy"
+		});
+		if (lazyLoadInstance) {
+			lazyLoadInstance.update();
+		}
+     </script>
 </body>
 </html>
