@@ -80,6 +80,13 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
                             + '<img class="img-fluid img-thumbnail lazy" src="https://via.placeholder.com/240x140?text=GGWP.KR" data-src="' + item.thumbnail_url + '" alt=""></a></div>';
                         $("#clipList").append(tempTag);
                     });
+                    
+                    var lazyLoadInstance = new LazyLoad({
+                        elements_selector: ".lazy"
+                    });
+                    if (lazyLoadInstance) {
+                        lazyLoadInstance.update();
+                    }
                 }
             });
     }
@@ -143,12 +150,7 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
         </footer>
     </div>
     <script type="text/javascript">
-		var lazyLoadInstance = new LazyLoad({
-			elements_selector: ".lazy"
-		});
-		if (lazyLoadInstance) {
-			lazyLoadInstance.update();
-		}
+		
      </script>
 </body>
 </html>
