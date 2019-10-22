@@ -83,7 +83,7 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
 			'<div class="col-lg-3 col-md-4 col-6 thumb">'
 			+'<div class="card" style="width: 100%;">'
 			+'<a class="thumbnail" href="#" data-target="#clipModal" data-toggle="modal" data-title="'+ item.title +'" data-emburl="'+item.url +'">'
-			+'<img class="card-img-top img-thumbnail img-fluid lazy" src="https://via.placeholder.com/240x140?text=GGWP.KR" data-src="'+ item.thumbnail_url +'" alt="">'
+			+'<img class="card-img-top img-thumbnail img-fluid lazy" src="https://ggwp.kr/img/placeholder_ggwp_kr.png" data-src="'+ item.thumbnail_url +'" alt="">'
 			+'<div class="card-body">'
 			+'<h7 class="clip-card-title card-title">'+ item.title +'</h7></a>'
 			+'</div></div></div>';
@@ -121,7 +121,7 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
                 adaptiveHeight: false
             });
 
-            var apiurl = apiServerUrl+'get/games/all';
+            /* var apiurl = apiServerUrl+'get/games/all';
             $.get(apiurl, function (data, status) {
                 if ("success" == status) {
                     $.each(data, function (i, item) {
@@ -131,14 +131,8 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
                         $('.slickList').slick('slickAdd',tempTag);
                     });
                     
-                    // var lazyLoadInstance = new LazyLoad({
-                    //     elements_selector: ".lazy"
-                    // });
-                    // if (lazyLoadInstance) {
-                    //     lazyLoadInstance.update();
-                    // }
                 }
-            });
+            }); */
 
             $('#clipModal').on('show.bs.modal', function (event) {
            	  var button = $(event.relatedTarget);
