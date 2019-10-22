@@ -77,40 +77,28 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
         var $docFrag = $(document.createDocumentFragment());
         
         $.get(apiurl, function (data, status) {
-			if ("success" == status) {
-			    $.each(data, function (i, item) {
-			        /* var tempTag =
-			       	'<div class="col-lg-3 col-md-4 col-6 thumb">'
-			       	+ item.title
-			       	+'<a class="thumbnail" href="#"'
-			       	+'data-toggle="modal" data-title="'+ item.title +'"'
-			        +'data-emburl="'+item.url +'"'
-			        +'data-target="#clipModal">'
-			        +'<img class="img-thumbnail img-fluid lazy"'
-			        +'src="https://via.placeholder.com/240x140?text=GGWP.KR" data-src="' + item.thumbnail_url + '" alt=""'
-			        +'></a></div>'; */
-			        var tempTag =
-			        '<div class="col-lg-3 col-md-4 col-6 thumb">'
-			        +'<div class="card" style="width: 100%;">'
-					+'<a class="thumbnail" href="#" data-target="#clipModal" data-toggle="modal" data-title="'+ item.title +'" data-emburl="'+item.url +'">'
-			       	+'<img class="card-img-top img-thumbnail img-fluid lazy" src="https://via.placeholder.com/240x140?text=GGWP.KR" data-src="'+ item.thumbnail_url +'" alt="">'
-					+'<div class="card-body">'
-					+'<h7 class="clip-card-title card-title">'+ item.title +'</h7></a>'
-// 					+'<p class="card-text"></p>
-// 					+'<a href="#" class="btn btn-primary">Go somewhere</a>
-					+'</div></div></div>';
-			        $docFrag.append(tempTag);
-			    });
-			    $("#clipList").empty();
-			    $("#clipList").append($docFrag);
-			    
-			    var lazyLoadInstance = new LazyLoad({
-			        elements_selector: ".lazy"
-			    });
-			    if (lazyLoadInstance) {
-			        lazyLoadInstance.update();
-			    }
-			}
+		if ("success" == status) {
+		    $.each(data, function (i, item) {
+			var tempTag =
+			'<div class="col-lg-3 col-md-4 col-6 thumb">'
+			+'<div class="card" style="width: 100%;">'
+			+'<a class="thumbnail" href="#" data-target="#clipModal" data-toggle="modal" data-title="'+ item.title +'" data-emburl="'+item.url +'">'
+			+'<img class="card-img-top img-thumbnail img-fluid lazy" src="https://via.placeholder.com/240x140?text=GGWP.KR" data-src="'+ item.thumbnail_url +'" alt="">'
+			+'<div class="card-body">'
+			+'<h7 class="clip-card-title card-title">'+ item.title +'</h7></a>'
+			+'</div></div></div>';
+			$docFrag.append(tempTag);
+		    });
+		    $("#clipList").empty();
+		    $("#clipList").append($docFrag);
+
+		    var lazyLoadInstance = new LazyLoad({
+			elements_selector: ".lazy"
+		    });
+		    if (lazyLoadInstance) {
+			lazyLoadInstance.update();
+		    }
+		}
         });
     }
         $(document).ready(function (){
@@ -143,12 +131,12 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
                         $('.slickList').slick('slickAdd',tempTag);
                     });
                     
-                    var lazyLoadInstance = new LazyLoad({
-                        elements_selector: ".lazy"
-                    });
-                    if (lazyLoadInstance) {
-                        lazyLoadInstance.update();
-                    }
+                    // var lazyLoadInstance = new LazyLoad({
+                    //     elements_selector: ".lazy"
+                    // });
+                    // if (lazyLoadInstance) {
+                    //     lazyLoadInstance.update();
+                    // }
                 }
             });
 
