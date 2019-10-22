@@ -65,7 +65,7 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
 
     var $docFrag = $(document.createDocumentFragment());
     var apiServerUrl = 'https://ggwp-kr.fastapi.shop/api/v1/';
-//     var apiServerUrl = "http://localhost:9081/api/v1/";
+    //var apiServerUrl = "http://localhost:9081/api/v1/";
     
     function getClips(gameid)
     {
@@ -93,10 +93,10 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
 		    $("#clipList").append($docFrag);
 
 		    var lazyLoadInstance = new LazyLoad({
-			elements_selector: ".lazy"
+				elements_selector: ".lazy"
 		    });
 		    if (lazyLoadInstance) {
-			lazyLoadInstance.update();
+				lazyLoadInstance.update();
 		    }
 		}
         });
@@ -109,39 +109,61 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
 
             $(".gamelistImg").click(function(e,h ) {
                 getClips(this.value);
-            });
-
-            $(".slickList").slick({
-                centerMode: true,
-                centerPadding: '30px',
-                slidesToShow: 6,
-                dots: false,
-                arrows: false,
-                infinite: true,
-                adaptiveHeight: false
-            });
-
-            /* var apiurl = apiServerUrl+'get/games/all';
-            $.get(apiurl, function (data, status) {
-                if ("success" == status) {
-                    $.each(data, function (i, item) {
-                        var tempTag =
-                        '<img value="'+ item.idx+'" class="gamelistImg img-fluid img-thumbnail lazy" src="https://via.placeholder.com/75x135?text=GGWP.KR"'
-                        + 'data-src="' + item.boxArtUrl + '" alt="' + item.name+'">';
-                        $('.slickList').slick('slickAdd',tempTag);
-                    });
-                    
-                }
-            }); */
+            });            
 
             $('#clipModal').on('show.bs.modal', function (event) {
-           	  var button = $(event.relatedTarget);
-           	  var demburl = button.data('emburl');
-           	  var dtitle = button.data('title');
-           	  var modal = $(this);
-           	  modal.find('.modal-title').text(dtitle)
-           	  modal.find('.modal-body #iframe-player').attr('src',demburl);
-           	})
+				var button = $(event.relatedTarget);
+				var demburl = button.data('emburl');
+				var dtitle = button.data('title');
+				var modal = $(this);
+				modal.find('.modal-title').text(dtitle)
+				modal.find('.modal-body #iframe-player').attr('src',demburl);
+           	});
+
+            $('#clipModal').on('hide.bs.modal', function (event) {
+				var modal = $(this);
+				modal.find('.modal-title').text('')
+				modal.find('.modal-body #iframe-player').attr('src','');
+           	});
+
+			
+			var $tempDoc = $(document.createDocumentFragment());
+			$.ajax({
+                url:apiServerUrl+'get/games/all',
+                type: "GET",
+                async: false,
+                dataType: "json",
+                success : function (data, status) {
+                	if ("success" == status) {
+                        $.each(data, function (i, item) {
+                            var tempTag =
+							'<a href="javascript:getClips('+item.idx+');" class="slickListGame" data-gameid="'+ item.idx +'">' 
+                            +'<img class="gamelistImg img-fluid img-thumbnail lazy" src="https://ggwp.kr/img/placeholder_ggwp_kr.png"'
+                            + 'data-src="' + item.boxArtUrl + '" alt="' + item.name+'"></a>';
+                            $tempDoc.append(tempTag);
+                        });
+                        $('.slickList').append($tempDoc);
+                        
+	                	$(".slickList").slick({
+	                        centerMode: true,
+	                        centerPadding: '35px',
+	                        dots: false,
+	                        slidesToShow: 8,
+	                        slidesToScroll: 8,
+	                        arrows: true,
+	                        infinite: true,
+	                        adaptiveHeight: false,
+	                        prevArrow:"<i class='fas fa-caret-left fa-5x a-left prev slick-prev'></i>",
+	                        nextArrow:"<i class='fas fa-caret-right fa-5x a-right next slick-next'></i>"
+	                    });
+                    }
+                },
+				statusCode: {
+					404: function() {
+						alert( "page not found" );
+					}
+				}      
+            });
         });
     </script>
     
@@ -168,6 +190,28 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
 			color: black;
     		font-weight: 600;
 		}
+		
+		#slickSlideArea{
+			position: relative;
+		    display: block;
+		    width: 80%;
+		    margin:0 auto;
+		}
+ 		.slickList > .slick-prev
+		{
+			position: absolute;
+		    left: -5%;
+		    color: lightgray;
+		    top: 15%;
+		}
+		
+		.slickList > .slick-next
+		{
+			position: absolute;
+		    right: -5%;
+		    color: lightgray;
+		    top: 15%;
+		}
     </style>
 </head>
 <body>
@@ -190,8 +234,8 @@ ZZZZZZZBDZZZZZZZZ8B8ZZZZZZZ5DZZZD5ZZZZZZ9ZZZZZZZZZ
         <hr/>
         
 		<!-- SLIDE LIST -->
-        <div id="slickSlideArea" style="display:none;">
-			<div class="slickList" data-slick='{"slidesToShow": 6, "slidesToScroll": 6}' ">
+        <div id="slickSlideArea" >
+			<div class="slickList">
        		</div>
         </div>
         
