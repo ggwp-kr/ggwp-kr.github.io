@@ -29,17 +29,22 @@ www.ggwp.kr@gmail.com
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--font-awesome :: https://github.com/FortAwesome/Font-Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/brands.min.css" />
-    <!-- Custom styles for this template -->
-    <!-- <link href="css/thumbnail-gallery.css" rel="stylesheet"> -->
+    <!-- jquery 3-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- bootstrap core js -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- lazyload  :: https://github.com/verlok/lazyload -->
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.2/dist/lazyload.min.js"></script>
+    <!-- slick -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- OwlCarousel2 :: https://owlcarousel2.github.io/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" /> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-
     var $docFrag = $(document.createDocumentFragment());
     var apiServerUrl = 'https://ggwp-kr.fastapi.shop/api/v1/';
     //var apiServerUrl = "http://localhost:9081/api/v1/";
@@ -119,20 +124,29 @@ www.ggwp.kr@gmail.com
                             + 'data-src="' + item.boxArtUrl + '" alt="' + item.name+'"></a>';
                             $tempDoc.append(tempTag);
                         });
-                        $('.slickList').append($tempDoc);
+                        $('.owl-carousel').append($tempDoc);
                         
-	                	$(".slickList").slick({
-	                        centerMode: false,
-	                        centerPadding: '25px',
-	                        dots: false,
-	                        slidesToShow: 5,
-	                        slidesToScroll: 5,
-	                        arrows: true,
-	                        infinite: true,
-	                        adaptiveHeight: false,
-	                        prevArrow:"<i class='fas fa-caret-left fa-5x a-left prev slick-prev'></i>",
-	                        nextArrow:"<i class='fas fa-caret-right fa-5x a-right next slick-next'></i>"
-	                    });
+	               //	$(".slickList").slick({
+	               //        centerMode: false,
+	               //        centerPadding: '25px',
+	               //        dots: false,
+	               //        slidesToShow: 5,
+	               //        slidesToScroll: 5,
+	               //        arrows: true,
+	               //        infinite: true,
+	               //        adaptiveHeight: false,
+	               //        prevArrow:"<i class='fas fa-caret-left fa-5x a-left prev slick-prev'></i>",
+	               //        nextArrow:"<i class='fas fa-caret-right fa-5x a-right next slick-next'></i>"
+	               //    });
+				$(".owl-carousel").owlCarousel({
+				items:5,
+				loop:true,
+				margin:10,
+				autoplay:true,
+				autoplayTimeout:4000
+				autoplayHoverPause:true
+				});
+				
                     }
                 },
 				statusCode: {
@@ -214,7 +228,9 @@ www.ggwp.kr@gmail.com
         
 		<!-- SLIDE LIST -->
         <div id="slickSlideArea" >
-			<div class="slickList">
+		<!--<div class="slickList">-->
+       		<!--</div>-->
+		<div class="owl-carousel">
        		</div>
         </div>
         
