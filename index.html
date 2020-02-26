@@ -48,7 +48,6 @@ www.ggwp.kr@gmail.com
     var $docFrag = $(document.createDocumentFragment());
     var apiServerUrl = 'https://ggwp-kr.fastapi.shop/api/v1/';
     //var apiServerUrl = "http://localhost:9081/api/v1/";
-    alert("server relocation.. sorry!");
     function getClips(gameid)
     {
         var apiurl = apiServerUrl+'get/clip';
@@ -213,6 +212,7 @@ www.ggwp.kr@gmail.com
             <a href="https://www.ggwp.kr"><img style="width: 125px;height: 125px;"
                     src="https://www.ggwp.kr/img/new_logo.png" /></a>
         </div>
+	<div class="alert alert-warning" role="alert">서버 문제로 인해 서비스가 원활하지 않습니다.</div>
         <hr/>
 		<!-- TOP GAMES CATEGORY -->
         <button type="button" value="all" class="ctg btn btn-outline-primary">All</button>
