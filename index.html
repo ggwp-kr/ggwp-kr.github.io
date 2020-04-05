@@ -117,10 +117,11 @@ www.ggwp.kr@gmail.com
                 success : function (data, status) {
                 	if ("success" == status) {
                         $.each(data, function (i, item) {
+			    var newurl = item.boxArtUrl.replace('90x150','360x600');
                             var tempTag =
 							'<a href="javascript:getClips('+item.idx+');" class="slickListGame" data-gameid="'+ item.idx +'">' 
                             +'<img class="gamelistImg img-fluid img-thumbnail lazy" src="https://ggwp.kr/img/placeholder_ggwp_kr.png"'
-                            + 'data-src="' + item.boxArtUrl + '" alt="' + item.name+'"></a>';
+                            + 'data-src="' + newurl + '" alt="' + item.name+'"></a>';
                             $tempDoc.append(tempTag);
                         });
                         $('.owl-carousel').append($tempDoc);
