@@ -46,7 +46,8 @@ www.ggwp.kr@gmail.com
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
     <script type="text/javascript">
     var $docFrag = $(document.createDocumentFragment());
-    var apiServerUrl = 'https://api.ggwp.kr/api/v1/';
+    var apiServerUrl = 'https://api-ggwp-kr.herokuapp.com/api/v1/';
+    //var apiServerUrl = 'https://api.ggwp.kr/api/v1/';
     //var apiServerUrl = "http://localhost:9081/api/v1/";
     function getClips(gameid)
     {
@@ -213,8 +214,7 @@ www.ggwp.kr@gmail.com
             <a href="https://www.ggwp.kr"><img style="width: 125px;height: 125px;"
                     src="https://www.ggwp.kr/img/new_logo.png" /></a>
         </div>
-	<div class="alert alert-warning" role="alert">Twitch API 정책 변경으로 서비스가 원활하지 않습니다. 해당 문제는 수정 중 입니다.</div>
-        <hr/>
+    <div class="alert alert-warning" role="alert">Heroku 호스팅 / Twitch API 정책 변경으로 인해 서비스가 원활하지 않습니다. </div>        <hr/>
 		<!-- TOP GAMES CATEGORY -->
         <button type="button" value="all" class="ctg btn btn-outline-primary">All</button>
         <button type="button" value="513143" class="ctg btn btn-outline-secondary">TFT</button>
