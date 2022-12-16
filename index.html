@@ -210,6 +210,22 @@ www.ggwp.kr@gmail.com
 </head>
 <body>
     <div class="container">
+     <div class="loading" style="
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       left:0px;
+       background:#fff;
+       z-index:1000;
+       display: grid;
+       margin: 0 auto;
+       opacity: 0.5;">
+<div class="spinner-border text-primary" role="status" style="
+    margin: auto;
+    height: 50px;
+">
+  <span class="sr-only">Loading...</span>
+</div></div>
         <div class="main-logo">
             <a href="https://www.ggwp.kr"><img style="width: 125px;height: 125px;"
                     src="https://www.ggwp.kr/img/new_logo.png" /></a>
@@ -291,6 +307,9 @@ www.ggwp.kr@gmail.com
     </div>
     
     <script type="text/javascript">
-	</script>
+	window.onload = function () {
+        $('.loading').hide();
+    };
+</script>
 </body>
 </html>
